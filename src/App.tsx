@@ -3,7 +3,7 @@ import Controller from './components/controller';
 import Cards from './components/cards';
 import ActivedCards from './components/activedCards';
 
-import './App.scss';
+import './App.css';
 import { useAppSelector } from './utils/hook';
 import { RootState } from './redux/store';
 
