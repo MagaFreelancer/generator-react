@@ -10,10 +10,9 @@ const ActivedCards: React.FC<IActivedCardsProps> = (props): JSX.Element => {
 
   const onClickRemoveSelectedCard = (e: React.MouseEvent<HTMLDivElement>): void => {
     const target = e.currentTarget.closest('.field__card') as HTMLDivElement;
-    if (target) {
-      const id = Number(target.getAttribute('data-bottom'));
-      dispatch(removeActiveCard(id));
-    }
+    
+    const id = Number(target.getAttribute('data-bottom'));
+    dispatch(removeActiveCard(id));
   };
   return (
     <div className="field__cards-bottom">
