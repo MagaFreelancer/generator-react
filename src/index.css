@@ -1,0 +1,19 @@
+:root {
+  --whiteColor: #ffffff;
+  --greenColor: #4bcd1b;
+  --greyColor: #8e8e8e;
+  --greyColor200: #565555;
+  --greyColor600: #2f2f2f;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "GothamProLight";
+}
+ul,
+li {
+  list-style-type: none;
+}
