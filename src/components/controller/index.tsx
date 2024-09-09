@@ -3,8 +3,6 @@ import { useAppDispatch, useAppSelector } from '../../utils/hook';
 import { RootState } from '../../redux/store';
 import { changeCards } from '../../redux/slices/creatorSlice';
 
-import './index.scss';
-
 const Controller: React.FC = (): JSX.Element => {
   const { btns, activeCards, type } = useAppSelector(
     (state: RootState) => state.creator

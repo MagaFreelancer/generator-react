@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { ICardState } from '../../common/types';
 
-
 /*
 cards - карточки
 activeCards - активные карточки
@@ -92,7 +91,7 @@ const initialState: ICardState = {
   btns: [
     {
       type: 'cat', // в зависимости от этого типа будут рендериться карточки
-      count: 4,  // в зависимости от этого числа будут рендериться карточки
+      count: 4, // в зависимости от этого числа будут рендериться карточки
       text: 'Набор 1', // текст для кнопок
     },
     {
@@ -119,38 +118,33 @@ export const creatorSlice = createSlice({
         return { ...card, active: false };
       });
     },
-    addActiveCard: (state, action: PayloadAction<number>) => {
-      const id = action.payload;
+    addActiveCard: (state, action: PayloadAction<{ id: number }>) => {
+      const { id } = action.payload;
       const card = state.cards.find((card) => card.id === id);
       const activedCard = state.activeCards.find((card) => card.id === id); // проверят есть ли уже среди активных карточек
 
       if (card && !activedCard) {
-        state.cards = state.cards.map((card) => {
-          if (card.id === id) {
-            return { ...card, active: !card.active };
-          } else {
-            return card;
-          }
-        });
+        state.cards = state.cards.map((card) =>
+          card.id === id ? { ...card, active: !card.active } : card
+        );
         state.activeCards.push(card); // Здесь изменяется состояние
       }
     },
     removeActiveCard: (state, action: PayloadAction<number>) => {
       const id = action.payload;
       state.activeCards = state.activeCards.filter((card) => card.id !== id);
-      state.cards = state.cards.map((card) => {
-        if (card.id === id) {
-          return { ...card, active: !card.active };
-        } else {
-          return card;
-        }
-      });
+      state.cards = state.cards.map((card) =>
+        card.id === id ? { ...card, active: !card.active } : card
+      );
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { changeCards, addActiveCard, removeActiveCard } =
-  creatorSlice.actions;
+export const {
+  changeCards,
+  addActiveCard,
+  removeActiveCard
+} = creatorSlice.actions;
 
 export default creatorSlice.reducer;

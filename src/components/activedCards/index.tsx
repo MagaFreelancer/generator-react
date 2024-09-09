@@ -1,16 +1,17 @@
 import React from 'react';
 import { useAppDispatch } from '../../utils/hook';
 import { removeActiveCard } from '../../redux/slices/creatorSlice';
-import './index.scss';
 import { Card, IActivedCardsProps } from '../../common/types';
 
 const ActivedCards: React.FC<IActivedCardsProps> = (props): JSX.Element => {
   const { activeCards } = props;
   const dispatch = useAppDispatch();
 
-  const onClickRemoveSelectedCard = (e: React.MouseEvent<HTMLDivElement>): void => {
+  const onClickRemoveSelectedCard = (
+    e: React.MouseEvent<HTMLDivElement>
+  ): void => {
     const target = e.currentTarget.closest('.field__card') as HTMLDivElement;
-    
+
     const id = Number(target.getAttribute('data-bottom'));
     dispatch(removeActiveCard(id));
   };
