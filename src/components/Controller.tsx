@@ -44,7 +44,7 @@ const Controller: React.FC = (): JSX.Element => {
           text="Сгенерировать"
           className="controller__generate"
           disabled={disabled}
-        ></Button>
+        />
       </div>
     </div>
   );
