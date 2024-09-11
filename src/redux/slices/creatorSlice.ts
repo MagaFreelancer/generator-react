@@ -127,7 +127,7 @@ export const creatorSlice = createSlice({
         state.cards = state.cards.map((card) =>
           card.id === id ? { ...card, active: !card.active } : card
         );
-        state.activeCards.push(card); // Здесь изменяется состояние
+        state.activeCards.push(card); //ё Здесь изменяется состояние
       }
     },
     removeActiveCard: (state, action: PayloadAction<number>) => {
@@ -141,10 +141,7 @@ export const creatorSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {
-  changeCards,
-  addActiveCard,
-  removeActiveCard
-} = creatorSlice.actions;
+export const { changeCards, addActiveCard, removeActiveCard } =
+  creatorSlice.actions;
 
 export default creatorSlice.reducer;
